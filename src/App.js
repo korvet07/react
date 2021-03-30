@@ -3,10 +3,10 @@ import React from "react";
 import {BrowserRouter, NavLink, Route} from "react-router-dom";
 function About() {
     return(
-        <div className= "row align-items-start">
+        <div className= "container-md">
             <div className="row py-3">
                 <div className="col-sm-4">
-                    <h3 className="mb-3"  ><i className="far fa-address-card"></i> Контакты</h3>
+                    <h3 className="my-2"  ><i className="far fa-address-card"></i> Контакты</h3>
                     <h5><i className="fas fa-map-marked"></i> Адрес:</h5>
                     <p>г. Москва, ул. Академика Скрябина, д. 9, стр. 4</p>
                     <h5><i className="fas fa-mobile-alt"></i> Телефон:</h5>
@@ -24,12 +24,21 @@ function About() {
 }
 function HomePage() {
     return(
-        <div className="container">
-            <div className="row align-items-start">
-                <div className="col">Одна из трёх колонок</div>
-                <div className="col">Одна из трёх колонок</div>
-                <div className="col">Одна из трёх колонок</div>
-
+        <div className="container pt-5">
+            <h1 className="text-center">Изучаемые технологии</h1>
+            <div className="row text-center mt-3">
+                <div className="col-sm-4">
+                    <i className="fab fa-html5 fa-10x" style={{ color: 'red' }} ></i>
+                    <h3>HTML</h3>
+                </div>
+                <div className="col-sm-4">
+                    <i className="fab fa-css3-alt fa-10x" style={{ color: 'orange' }}></i>
+                    <h3>CSS</h3>
+                </div>
+                <div className="col-sm-4">
+                    <i className="fab fa-js-square fa-10x" style={{ color: 'purple' }}></i>
+                    <h3>JavaScript</h3>
+                </div>
             </div>
         </div>
     )
