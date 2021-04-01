@@ -1,6 +1,9 @@
 import './App.css';
 import React from "react";
 import {BrowserRouter, NavLink, Route} from "react-router-dom";
+import {PostList} from "./Components/PostList";
+import {Post} from "./Components/Post";
+
 function About() {
     return(
         <div className= "container-md">
@@ -70,12 +73,13 @@ function ContactUs() {
 }
 function App() {
   return (
-    <div className="App">
+    <div className="container">
         <BrowserRouter>
             <Menu/>
-            <Route exact path="/" render={()=><HomePage/>} />
+            <Route exact path="/" render={()=><PostList/>} />
             <Route path="/about" render={()=><About/>} />
             <Route path="/contact-us" render={()=><ContactUs/>}/>
+            <Route path="/post" render={()=><Post/>}/>
         </BrowserRouter>
     </div>
   );
