@@ -3,6 +3,7 @@ import React from "react";
 import {BrowserRouter, NavLink, Route} from "react-router-dom";
 import {PostList} from "./Components/PostList";
 import {Post} from "./Components/Post";
+import {Menu} from "./Components/Menu";
 
 function About() {
     return(
@@ -23,7 +24,6 @@ function About() {
             </div>
         </div>
     )
-
 }
 function HomePage() {
     return(
@@ -45,17 +45,6 @@ function HomePage() {
             </div>
         </div>
     )
-
-}
-function Menu() {
-    return(
-        <nav className="nav">
-            <NavLink className="nav-link active" aria-current="page" to="/"><i className="bi bi-house-door"> </i>Главная</NavLink>
-            <NavLink className="nav-link" to="/about"><i className="bi bi-file-earmark-person"> </i>О нас</NavLink>
-            <NavLink className="nav-link" to ="/contact-us"><i className="bi bi-card-checklist"> </i>Контакты</NavLink>
-        </nav>
-    )
-
 }
 function ContactUs() {
     return(
@@ -66,10 +55,8 @@ function ContactUs() {
                 <div className="mb-3"><textarea className="form-control" type="text"/></div>
                 <div className="mb-3"><input className="form-control btn btn-primary" type="submit"/></div>
             </form>
-
         </div>
     )
-
 }
 function App() {
   return (
@@ -84,5 +71,4 @@ function App() {
     </div>
   );
 }
-
 export default App;
