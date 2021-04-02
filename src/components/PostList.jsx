@@ -26,6 +26,7 @@ export class PostList extends React.Component{
                 let rows = [];
                 for (let i = 0; i < result.length; i++) {
                     rows.push(<Tr
+                        key={i}
                         index={i+1}
                         title={result[i].title}
                         author={result[i].author}
@@ -43,10 +44,10 @@ export class PostList extends React.Component{
         return <table className="table table-hover">
             <thead>
             <tr>
-                <th class="table-primary " scope="col"><i className="bi bi-patch-plus"> </i></th>
-                <th class="table-primary " scope="col"><i className="bi bi-card-list"> </i>Заголовок</th>
-                <th class="table-primary " scope="col"><i className="bi bi-file-earmark-person"> </i>Автор</th>
-                <th class="table-primary " scope="col"><i className="bi bi-calendar-check"> </i>Дата добавления</th>
+                <th class="table-primary" scope="col"><i className="bi bi-patch-plus"> </i></th>
+                <th class="table-primary" scope="col"><i className="bi bi-card-list"> </i>Заголовок</th>
+                <th class="table-primary" scope="col"><i className="bi bi-file-earmark-person"> </i>Автор</th>
+                <th class="table-primary" scope="col"><i className="bi bi-calendar-check"> </i>Дата добавления</th>
             </tr>
             </thead>
             <tbody class="table-success table-striped">
