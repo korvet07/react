@@ -1,43 +1,38 @@
 import React from 'react';
 
 export class Post extends React.Component{
-    constructor() {
-        super();
+    constructor(props) {  // 1
+        super(props);
         this.state = {
-            post : {}
-        };
+            title: "",
+            text: "",
+            date_added: "",
+            author: ""
+        }
     }
-    componentDidMount(){
+
+    componentDidMount() { // 3
         const formData = new FormData();
-        formData.append('id',1);
-        fetch('http://l96295ht.beget.tech/php/getPost.php',{
-            method : 'POST',
-            body : formData
-        })
-            .then(response => response.json())
-            .then(result => {
+        formData.append("id",this.props.match.params.id);
+        fetch("http://l96295ht.beget.tech/php/getPost.php",{
+            method: "POST",
+            body: formData
+        }).then(response=>response.json())
+            .then(result=>{
                 this.setState({
-                    post : {
-                        title : result.title,
-                        text : result.text,
-                        author : result.author,
-                        date_added : result.date_added
-                    }
+                    title: result.title,
+                    text: result.text,
+                    date_addet: result.date_addet,
+                    author: result.author
                 })
-            });
+            })
     }
-    render(){
-        return (
-            <>
-                <h1 className="text-center">{this.state.post.title}</h1>
-                <div className="my-3 mx-auto col-md-8 entry-text" style={{background: "LightSkyBlue"}}>
-                    {this.state.post.text}
-                </div>
-                <div className="my-3 mx-auto col-md-8 entry-meta" style={{color: "RoyalBlue"}}>
-                    <i className="fas fa-user me-2 ms-2" aria-hidden="true"></i>Автор : {this.state.post.author}
-                    <i className="fas fa-clock me-2 ms-2" aria-hidden="true"></i>Дата добавления : {this.state.post.date_added}
-                </div>
-            </>
-        );
+    render() { // 2
+        return <div>
+            <h1 className="text-center" style={{background: "RoyalBlue"}}><i className="bi bi-intersect"> </i>{this.state.title}</h1>
+            <p style={{background: "LightSkyBlue"}}>{this.state.text}</p>
+            <p style={{color: "RoyalBlue"}}><i className="bi bi-info-circle"> </i>Добавлено: {this.state.date_addet}</p>
+            <p style={{color: "RoyalBlue"}}><i className="bi bi-file-earmark-person"> </i>Автор: {this.state.author}</p>
+        </div>
     }
 }
